@@ -1,0 +1,182 @@
+* {
+  font-family: "0xProto Nerd Font", "Noto Sans CJK SC", sans-serif;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: #e2e8f0;
+}
+
+#waybar > box.horizontal {
+  background: rgba(12, 12, 20, 0.54);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  /*margin: 6px 10px 0 10px;*/
+  padding: 6px 6px;
+}
+
+#clock,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#battery,
+#tray,
+#custom-logo,
+#custom-power,
+#mpris,
+#window,
+#workspaces {
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+#clock {
+  font-size: 14px;
+  font-weight: bold;
+  color: #a5f3fc;
+  /*background-color: skyblue;*/
+}
+
+#custom-logo {
+  font-size: 15px;
+  color: #67e8f9;
+}
+
+#window {
+  font-weight: bold;
+  color: #f1f5f9;
+}
+
+#workspaces button {
+  color: #64748b;
+  border-radius: 8px;
+  padding: 0 7px 0 3px;
+}
+
+#workspaces button:hover {
+  background: rgba(34, 211, 238, 0.14);
+  color: #67e8f9;
+}
+
+#workspaces button.active {
+  color: #94a3b8;
+}
+
+#workspaces button.focused {
+  color: #22d3ee;
+}
+
+#workspaces button.empty {
+  color: #334155;
+}
+
+#mpris {
+  color: #fcd34d;
+}
+
+#mpris.paused {
+  color: #64748b;
+}
+
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#battery {
+  color: #cbd5e1;
+}
+
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover,
+#mpris:hover,
+#custom-logo:hover {
+  background: rgba(34, 211, 238, 0.14);
+  color: #67e8f9;
+}
+
+#custom-power {
+  font-size: 14px;
+  color: #f87171;
+}
+
+#custom-power:hover {
+  background: rgba(248, 113, 113, 0.18);
+  color: #fca5a5;
+}
+
+#battery.warning {
+  color: #fbbf24;
+}
+
+#battery.critical {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.18);
+}
+
+#battery.charging {
+  color: #34d399;
+}
+
+/*#tray {
+    background-color: lightskyblue;
+}*/
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background: rgba(248, 113, 113, 0.3);
+}
+
+tooltip {
+  background: rgba(12, 12, 20, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 10px;
+  color: #e2e8f0;
+}
+
+tooltip label {
+  color: #e2e8f0;
+}
+
+menu {
+  background-color: rgba(12, 12, 20, 0.94);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+menuitem {
+  color: #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+menuitem:hover {
+  background-color: rgba(34, 211, 238, 0.14);
+  color: #67e8f9;
+}
+
+menuitem > label {
+  color: inherit;
+}
+
+menu separator,
+menuitem separator {
+  background-color: rgba(148, 163, 184, 0.15);
+  min-height: 1px;
+}

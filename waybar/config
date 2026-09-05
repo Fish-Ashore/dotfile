@@ -1,0 +1,129 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "bottom",
+  "spacing": 6,
+  "margin-top": 0,
+  "margin-left": 10,
+  "margin-right": 10,
+
+  "modules-left": ["custom/logo", "niri/workspaces", "niri/window", "mpris"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "cpu", "memory", "network", "pulseaudio", "battery", "custom/power"],
+
+  "custom/logo": {
+    "format": " \ue843 ",
+    "tooltip": false,
+    "on-click": "fuzzel"
+  },
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "focused": "\uf111",
+      "active": "\uf111",
+      "default": "\uf111",
+      "empty": "\uf111"
+    },
+    "tooltip": true
+  },
+
+  "niri/window": {
+    "format": " {title}",
+    "icon": true,
+    "icon-size": 16,
+    "tooltip": false
+  },
+
+  "mpris": {
+    "format": "{status_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "interval": 1,
+    "dynamic-len": 40,
+    "status-icons": {
+      "playing": " \uf04b",
+      "paused": " \uf04c"
+    },
+    "tooltip-format": "{player} ({status})"
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%Y-%m-%d %H:%M (%A)}",
+    "interval": 1,
+    "on-click": "toggle",
+    "tooltip-format": "{:%Y-%m-%d (%A) %H:%M:%S}",
+    "calendar": {
+      "format": {
+        "weekday-header": "<span color='#22d3ee'><b>{}</b></span>",
+        "today": "<span color='#22d3ee'><b>{}</b></span>"
+      }
+    }
+  },
+
+  "cpu": {
+    "interval": 2,
+    "format": " \uf2db {usage}%",
+    "max-length": 10,
+  },
+
+  "memory": {
+    "interval": 2,
+    "format": " \uefc5 {}%",
+    "max-length": 10,
+    "tooltip-format": "RAM: {used}/{total} GiB"
+  },
+
+  "network": {
+    "format-wifi": " \uf1eb  ",
+    "format-ethernet": " \uf0c2 {ifname}",
+    "format-disconnected": "",
+    "format-disabled": "",
+    "max-length": 30,
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " \uf026 {volume}%",
+    "format-icons": {
+      "default": [" \uf027", " \uf027", " \uf028"],
+      "headphone": " \uf025",
+      "headset": " \uf025"
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip-format": "{desc}"
+  },
+
+  "battery": {
+    "bat": "BAT0",
+    "interval": 10,
+    "states": {
+      "warning": 25,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "charging": [" \uf0e7\uf244", " \uf0e7\uf243", " \uf0e7\uf240"],
+      "discharging": [" \uf244", " \uf243", " \uf240"]
+    },
+    "tooltip-format": "{capacity}% {timeTo}"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10,
+    "padding": 10
+  },
+
+  "custom/power": {
+    "format": " \uf011 ",
+    "tooltip": "Power menu",
+    "on-click": "/home/hy/.config/waybar/power-menu.sh"
+  }
+}

@@ -1,0 +1,40 @@
+[window]
+dimensions = { columns = 80, lines = 24 }
+padding = { x = 4, y = 0 }
+opacity = 0.8
+blur = true
+
+[font]
+normal = { family = "0xProto Nerd Font", style = "Regular" }
+bold = { family = "0xProto Nerd Font", style = "bold" }
+italic = { family = "0xProto Nerd Font", style = "italic" }
+bold_italic = { family = "0xProto Nerd Font", style = "bold italic" }
+size = 13
+
+[terminal]
+# shell = { program = "/usr/bin/fish", args = ["-l"] }
+
+# [colors.primary]
+# foreground = "#ffffff" # 白色
+# background = "#000000" # 黑色
+
+# [colors.normal]
+# black = "#000000"
+# red = "#ff3b30"
+# green = "#4cd964"
+# yellow = "#ffcc00"
+# blue = "#007aff"
+# magenta = "#ff2d55"
+# cyan = "#5ac8fa"
+# white = "#ffffff"
+
+
+# [colors.bright]
+# black = "#686868"
+# red = "#ff3b30"
+# green = "#4cd964"
+# yellow = "#ffcc00"
+# blue = "#007aff"
+# magenta = "#ff2d55"
+# cyan = "#5ac8fa"
+# white = "#ffffff"
