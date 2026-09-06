@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export PATH="/run/current-system/sw/bin:/etc/profiles/per-user/${USER:-$(id -un)}/bin:$HOME/.nix-profile/bin:$PATH"
+
 FONT="0xProto Nerd Font:size=16"
 
 COMMON=(

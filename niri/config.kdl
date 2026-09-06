@@ -21,7 +21,7 @@ input {
         }
 
         // 启动时启用数字键盘锁定，省略此设置则禁用。
-        // numlock
+        numlock
     }
 
     // 接下来的部分包含 libinput 设置。
@@ -133,10 +133,10 @@ overview {
 
 // 指定光标的主题和大小，打字时隐藏光标
 cursor {
-    // xcursor-theme "Dracula-cursors"
     xcursor-theme "Bibata-Modern-Ice"
     xcursor-size 24
     hide-when-typing
+    hide-after-inactive-ms 2000
 }
 
 // --- NIRI BLUR START ---
@@ -380,10 +380,10 @@ gestures {
 // 更多 spawn 示例请参阅下面的 binds 部分。
 
 // 此行启动 waybar，一个常用的 Wayland 合成器状态栏。
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
 spawn-at-startup "fcitx5"
 spawn-at-startup "mako"
-spawn-at-startup "clipse" "--listen"
+// spawn-at-startup "clipse" "--listen"
 spawn-at-startup "hypridle"
 
 // spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/hy/Pictures/wallpapers/3.jpg"
@@ -529,7 +529,7 @@ binds {
     // 会显示一个重要快捷键列表。
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Alt+V {spawn "clipse-gui";}
+    Mod+Alt+V {spawn "cliphist-fuzzel-img";}
 
     // 推荐的运行程序按键绑定：终端、应用启动器、屏幕锁定器。
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }

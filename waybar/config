@@ -14,7 +14,7 @@
   "custom/logo": {
     "format": " \ue843 ",
     "tooltip": false,
-    "on-click": "fuzzel"
+    "on-click": "PATH=/run/current-system/sw/bin:/etc/profiles/per-user/$USER/bin:$HOME/.nix-profile/bin:$PATH fuzzel"
   },
 
   "niri/workspaces": {
@@ -124,6 +124,6 @@
   "custom/power": {
     "format": " \uf011 ",
     "tooltip": "Power menu",
-    "on-click": "/home/hy/.config/waybar/power-menu.sh"
+    "on-click": "PATH=/run/current-system/sw/bin:/etc/profiles/per-user/$USER/bin:$HOME/.nix-profile/bin:$PATH /home/hy/.config/waybar/power-menu.sh"
   }
 }
