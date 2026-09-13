@@ -383,8 +383,9 @@ gestures {
 // spawn-at-startup "waybar"
 spawn-at-startup "fcitx5"
 spawn-at-startup "mako"
+spawn-at-startup "polkit-gnome-authentication-agent-1"
 // spawn-at-startup "clipse" "--listen"
-spawn-at-startup "hypridle"
+// spawn-at-startup "hypridle"
 
 // spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/hy/Pictures/wallpapers/3.jpg"
 
@@ -491,11 +492,11 @@ window-rule {
 
 // 示例：将两个密码管理器排除在屏幕录制之外。
 // （此示例规则已在前面用 "/-" 注释掉。）
-/-window-rule {
+/- window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
-    block-out-from "screen-capture"
+    // block-out-from "screen-capture"
 
     // 如果你希望它们在第三方截图工具中可见，请改用此项。
     // block-out-from "screencast"
@@ -534,7 +535,7 @@ binds {
     // 推荐的运行程序按键绑定：终端、应用启动器、屏幕锁定器。
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Hyperlock" { spawn "hyprlock"; }
+    Super+Alt+L hotkey-overlay-title="Hyperlock" { spawn-sh "pidof hyprlock || hyprlock"; }
 
     // 使用 spawn-sh 运行 shell 命令。如果你需要管道、多个命令等时请这样做。
     // 注意：整个命令作为单个参数传入。它会原样传递给 `sh -c`。
