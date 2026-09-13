@@ -63,20 +63,20 @@
 
   "cpu": {
     "interval": 2,
-    "format": " \uf2db {usage}%",
+    "format": "\uf2db {usage}%",
     "max-length": 10,
   },
 
   "memory": {
     "interval": 2,
-    "format": " \uefc5 {}%",
+    "format": "\uefc5 {}%",
     "max-length": 10,
     "tooltip-format": "RAM: {used}/{total} GiB"
   },
 
   "network": {
-    "format-wifi": " \uf1eb  ",
-    "format-ethernet": " \uf0c2 {ifname}",
+    "format-wifi": "\uf1eb ",
+    "format-ethernet": "\uf0c2 {ifname}",
     "format-disconnected": "",
     "format-disabled": "",
     "max-length": 30,
@@ -87,11 +87,11 @@
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": " \uf026 {volume}%",
+    "format-muted": "\uf026 {volume}%",
     "format-icons": {
-      "default": [" \uf027", " \uf027", " \uf028"],
-      "headphone": " \uf025",
-      "headset": " \uf025"
+      "default": ["\uf027", "\uf027", "\uf028"],
+      "headphone": "\uf025",
+      "headset": "\uf025"
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
@@ -109,16 +109,16 @@
     },
     "format": "{icon} {capacity}%",
     "format-icons": {
-      "charging": [" \uf0e7\uf244", " \uf0e7\uf243", " \uf0e7\uf240"],
-      "discharging": [" \uf244", " \uf243", " \uf240"]
+      "default": ["\uf244", "\uf243", "\uf240"],
+      "charging": ["\uf0e7\uf244", "\uf0e7\uf243", "\uf0e7\uf240"],
+      "discharging": ["\uf244", "\uf243", "\uf240"]
     },
     "tooltip-format": "{capacity}% {timeTo}"
   },
 
   "tray": {
     "icon-size": 18,
-    "spacing": 10,
-    "padding": 10
+    "spacing": 8
   },
 
   "custom/power": {

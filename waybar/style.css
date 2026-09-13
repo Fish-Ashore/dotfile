@@ -180,3 +180,14 @@ menuitem separator {
   background-color: rgba(148, 163, 184, 0.15);
   min-height: 1px;
 }
+
+/* keep the resting gaps while the hover boxes hug their content */
+#tray,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#battery,
+#custom-power {
+  margin: 0 2px;
+}
