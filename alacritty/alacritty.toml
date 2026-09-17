@@ -1,3 +1,5 @@
+[general]
+
 [window]
 dimensions = { columns = 80, lines = 24 }
 padding = { x = 4, y = 0 }

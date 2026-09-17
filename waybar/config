@@ -64,7 +64,7 @@
   "cpu": {
     "interval": 2,
     "format": "\uf2db {usage}%",
-    "max-length": 10,
+    "max-length": 10
   },
 
   "memory": {

@@ -104,22 +104,21 @@ output "eDP-1" {
 }
 
 
-// 启动 awww 的主守护进程
-// spawn-at-startup "awww-daemon"
+// 添加如下行可在启动时生成进程。
+// 请注意，以会话方式运行 niri 支持 xdg-desktop-autostart，
+// 这可能更方便使用。
+// 更多 spawn 示例请参阅下面的 binds 部分。
+
+spawn-at-startup "fcitx5"
+spawn-at-startup "polkit-gnome-authentication-agent-1"
+
+// Noctalia 提供状态栏、启动器、通知、锁屏、空闲管理与壁纸。
+spawn-at-startup "noctalia"
 
 
+// 若要运行 shell 命令（带变量、管道等），请使用 spawn-sh-at-startup：
+// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
-// 为工作区启动一个 awww-daemon
-spawn-at-startup "awww-daemon"
-
-// 为背景层启动另一个 awww-daemon，并指定命名空间
-spawn-at-startup "awww-daemon" "--namespace" "backdrop"
-
-// 关键：将这个带有 "backdrop" 命名空间的窗口放入 Niri 的 backdrop 层
-layer-rule {
-    match namespace="^awww-daemonbackdrop$"
-    place-within-backdrop true
-}
 
 overview {
     zoom 0.35
@@ -163,21 +162,20 @@ window-rule {
         blur true
     }
 }
-// fuzzel 专属的 layer 规则
+
+
 layer-rule {
-    match namespace="^launcher$"
-    geometry-corner-radius 8
-    background-effect {
-        xray false
-        blur true
-    }
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
 }
+
 // --- NIRI BLUR END ---
 
 // 覆盖由niri启动的进程的环境变量
 environment {
     XCURSOR_THEME "Bibata-Modern-Ice"
     XCURSOR_SIZE "24"
+    QT_QPA_PLATFORM "wayland" // 强制 Qt 应用使用 Wayland 后端
     QT_QPA_PLATFORMTHEME "qt5ct"
     // ALL_PROXY "http://127.0.0.1:7890"
     LANG "zh_CN.UTF-8"
@@ -196,8 +194,6 @@ environment {
     LC_ALL null
     // XDG_DATA_DIRS "$HOME/.local/share" "$XDG_DATA_DIRS"
     GTK_IM_MODULE "fcitx"
-    QT_IM_MODULE "fcitx"
-    // https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Sway
     XMODIFIERS "@im=fcitx"
     QT_IM_MODULES "wayland;fcitx"
     // GTK_IM_MODULE null
@@ -212,6 +208,7 @@ window-rule {
     match app-id="virt-manager"
     match app-id="QQ"
     match app-id="clipse-gui"
+    match app-id="top.imsyy.splayer_next"
     open-floating true
 }
 
@@ -374,25 +371,7 @@ gestures {
     }
 }
 
-// 添加如下行可在启动时生成进程。
-// 请注意，以会话方式运行 niri 支持 xdg-desktop-autostart，
-// 这可能更方便使用。
-// 更多 spawn 示例请参阅下面的 binds 部分。
 
-// 此行启动 waybar，一个常用的 Wayland 合成器状态栏。
-// spawn-at-startup "waybar"
-spawn-at-startup "fcitx5"
-spawn-at-startup "mako"
-spawn-at-startup "polkit-gnome-authentication-agent-1"
-// spawn-at-startup "clipse" "--listen"
-// spawn-at-startup "hypridle"
-
-// spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/hy/Pictures/wallpapers/3.jpg"
-
-
-
-// 若要运行 shell 命令（带变量、管道等），请使用 spawn-sh-at-startup：
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 hotkey-overlay {
     // 取消注释此行可禁用启动时的"重要快捷键"弹出提示。
@@ -530,12 +509,12 @@ binds {
     // 会显示一个重要快捷键列表。
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Alt+V {spawn "cliphist-fuzzel-img";}
+    Mod+Alt+V {spawn "noctalia" "msg" "panel-toggle" "clipboard";}
 
     // 推荐的运行程序按键绑定：终端、应用启动器、屏幕锁定器。
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Hyperlock" { spawn-sh "pidof hyprlock || hyprlock"; }
+    Mod+D hotkey-overlay-title="Run an Application: noctalia" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Super+Alt+L hotkey-overlay-title="Lock: noctalia" { spawn "noctalia" "msg" "session" "lock"; }
 
     // 使用 spawn-sh 运行 shell 命令。如果你需要管道、多个命令等时请这样做。
     // 注意：整个命令作为单个参数传入。它会原样传递给 `sh -c`。
@@ -801,3 +780,5 @@ binds {
 
 }
 prefer-no-csd
+
+include "noctalia.kdl"
