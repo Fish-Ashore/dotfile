@@ -1,10 +1,11 @@
 [general]
 
 [window]
-dimensions = { columns = 80, lines = 24 }
-padding = { x = 4, y = 0 }
+dimensions = { columns = 110, lines = 28 }
+padding = { x = 6, y = 4 }
 opacity = 0.8
 blur = true
+# decorations = "none"
 
 [font]
 normal = { family = "0xProto Nerd Font", style = "Regular" }
@@ -13,7 +14,7 @@ italic = { family = "0xProto Nerd Font", style = "italic" }
 bold_italic = { family = "0xProto Nerd Font", style = "bold italic" }
 size = 13
 
-[terminal]
+# [terminal]
 # shell = { program = "/usr/bin/fish", args = ["-l"] }
 
 # [colors.primary]

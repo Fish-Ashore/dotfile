@@ -14,7 +14,8 @@ alias ll='ls -l'
 alias la='ls -a'
 alias gs='git status'
 alias ..='cd ..'
-
+alias zed='zeditor'
+alias gitui='gitui -t catppuccin-mocha.ron'
 # --- 函数 ---
 function mkcd
     mkdir -p $argv[1]

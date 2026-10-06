@@ -83,7 +83,7 @@ output "eDP-1" {
     // 如果省略刷新率，niri 将为该分辨率选择最高刷新率。
     // 如果完全省略模式或模式无效，niri 将自动选择一个。
     // 在 niri 实例内运行 `niri msg outputs` 可列出所有输出及其模式。
-    mode "1920x1200@60.000"
+    mode "1920x1200@165.000"
 
     // 你可以使用整数或小数缩放比例，例如使用 1.5 表示 150% 缩放。
     scale 1
@@ -205,6 +205,7 @@ environment {
 window-rule {
     match app-id="wechat" // 将这里的 ID 替换成你的目标应用
     match title="^接龙管家"
+    match title="^OCR 结果 — Mark Shot"
     match app-id="virt-manager"
     match app-id="QQ"
     match app-id="clipse-gui"
@@ -370,8 +371,6 @@ gestures {
         off
     }
 }
-
-
 
 hotkey-overlay {
     // 取消注释此行可禁用启动时的"重要快捷键"弹出提示。
